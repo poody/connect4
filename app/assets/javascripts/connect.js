@@ -47,7 +47,8 @@ function updateGameboard () {
 	var clicks = document.getElementById("clicks").value;
 	document.getElementById("clicks").value = (parseInt(clicks) + 1);
 	
-	var cell = document.getElementById("turnCell").style.background = getPlayerColor () + getPlayerName();
+	var cell = document.getElementById("turnCell").style.background = getPlayerColor();
+	document.getElementById("turnPlayer").getElementsByTagName('h1')[0].innerHTML = getPlayerName();
 }
 
 function end () {
