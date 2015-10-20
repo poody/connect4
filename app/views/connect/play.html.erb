@@ -1,0 +1,64 @@
+<div class="pure-g-r">
+
+  <div class = "sidebar pure-u">
+    <header class="header">
+      <h1>Connect Four</h1> 
+      <h3>Sample App</h3>
+      <h5>Connect Four (also known as Captain's Mistress, Four Up, Plot Four, Find Four, Fourplay, Four in a Row and Four in a Line) is a two-player game in which the players first choose a color and then take turns dropping colored discs from the top into a seven-column, six-row vertically suspended grid. <a href="http://en.wikipedia.org/wiki/Connect_Four" title="Connect Four Wiki">Wiki</a> </h5> 
+    </header>
+
+
+  </div>
+
+  <div class="pure-u-1" id="layout">
+    <table id="tallyboard" class="pure-table">
+      <thead>
+        <tr>
+          <td id="playerCellA">
+            Player A
+          </td>
+          <td id="playerCellB"> 
+            Player B
+          </td>
+        <tr/>
+      </thead>
+      <tr>
+        <td id="turnCell" colspan="2">
+          <h1>TURN</h1>
+        </td>
+      <tr/>
+    </table>
+
+    <hr/>
+
+    <table id = "board" class="pure-table pure-table-bordered">
+      <tr class = "0">
+        <% (@board.cells). each do |cell| %>
+        
+          <td class = "<%= cell.y %>" > 
+            <button 
+              class = "cellButton" 
+              id = "<%= cell.x %>_<%= cell.y %>" 
+              onclick = "play(<%= cell.x %>, <%= cell.y %>)">
+              o
+              <input type = "hidden" 
+                id = "played_<%= cell.x %>_<%= cell.y %>" 
+                value = "<%= cell.played %>" /> 
+            </button>
+          </td>
+
+          <% if cell.y == (@board.cols - 1)  %>
+            </tr>
+            <% if cell.x != (@board.rows - 1)  %>
+              <tr class = "<%= cell.x + 1 %>">
+            <% end %>
+          <% end %>
+        <% end %>
+    </table>
+
+    <input type="hidden" id="clicks" value="0"/>
+    <hr/>
+    
+  </div>
+
+</div>
