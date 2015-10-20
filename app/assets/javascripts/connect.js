@@ -49,7 +49,7 @@ function updateGameboard () {
 	var cell = document.getElementById("turnCell").style.background = getPlayerColor();
 	//var turn = document.getElementById("turnPlayer").innerHTML= getPlayerName();
 	var element = document.getElementById("turnPlayer");
-	element.innerHTML = getPlayerName();
+	alert(element.innerHTML = getPlayerName());
 
 }
 
