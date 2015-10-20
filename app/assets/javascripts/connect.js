@@ -11,10 +11,10 @@ function insertToken (row, col) {
     for (var i = rows-1; i >= 0; i--) {
     	var id = "played_"+i+"_"+col
     	var cell = document.getElementById(id).value;
-    	// checks if cell is empty
+    	
     	if(cell == ""){
     		document.getElementById(i+"_"+col).style.background = getPlayerColor ();
-    		//inserted token virtually - the cell is played
+
     		document.getElementById(id).value = getPlayerName ();
     		break;
     	}
@@ -25,10 +25,9 @@ function insertToken (row, col) {
 function getPlayerColor () {
 	var clicks = document.getElementById("clicks").value;
 	if (clicks % 2 == 0) {		
-		return 'rgb(248, 93, 93)'; // Player A
-	}
+		return 'rgb(248, 93, 93)'; 
 	else {
-		return 'rgb(97, 97, 255)'; //Player B
+		return 'rgb(97, 97, 255)'; 
 	}
 }
 
@@ -48,7 +47,8 @@ function updateGameboard () {
 	document.getElementById("clicks").value = (parseInt(clicks) + 1);
 	
 	var cell = document.getElementById("turnCell").style.background = getPlayerColor();
-	document.getElementById("turnPlayer").getElementsByTagName('h1')[0].textContent= getPlayerName();
+	var turn = document.getElementById("turnPlayer").innerHTML= getPlayerName();
+
 }
 
 function end () {
