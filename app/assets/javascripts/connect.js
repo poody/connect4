@@ -53,7 +53,7 @@ function updateGameboard () {
 }
 
 function end () {
-	alert("Wuzzaaa! "+ getPlayerName() + " win!" );
+	alert(getPlayerName() + " win!" );
 	var buttons = document.getElementsByClassName("cellButton"); 
 	for (var i = 0; i < buttons.length; i++) {
 		buttons[i].disabled = true;
