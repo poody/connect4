@@ -1,4 +1,3 @@
-//TODO: Remove magic number 4
 
 function play (row, col) {
 	insertToken (row, col);
@@ -44,12 +43,11 @@ function getPlayerName () {
 }
 
 function updateGameboard () {
-	// add click count
+
 	var clicks = document.getElementById("clicks").value;
 	document.getElementById("clicks").value = (parseInt(clicks) + 1);
 	
-	//update colors
-	var cell = document.getElementById("turnCell").style.background = getPlayerColor ();
+	var cell = document.getElementById("turnCell").style.background = getPlayerColor () + getPlayerName();
 }
 
 function end () {
@@ -69,12 +67,10 @@ function checkForWinner () {
 			var id = "played_"+x+"_"+y
 	    	var cell = document.getElementById(id).value;
 			
-			// skips non-played cells
 	    	if(cell == "") {
 	    		continue;
 	    	}
 	    	
-	    	//check for connected cells
 	    	if(isHorizontallyConnected(x, y)) {
 	    		end();
 	    		return;
@@ -149,7 +145,6 @@ function isDiagonallyUpwardConnected (row, col) {
 	
 	for (var z = 0; z < 4; z++) {
 		var id = "played_"+(row-z)+"_"+(col+z)
-		//alert(id);
 		var cell = document.getElementById(id).value;
 		if(cell == "" || cell != player) {
 			return false;
